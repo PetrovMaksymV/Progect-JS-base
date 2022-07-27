@@ -4,13 +4,116 @@
 	<title></title>
 	<script type="text/javascript">
 
+var position = [
+	"Junior QA engineer",
+	"Middle QA engineer",
+	"Porduct owner",
+	"Senior QA engineer",
+	"Middle developer",
+	"Project manager",
+	"Senior developer",
+	"Junior developer",	
+];
+console.log(position);
+
+
+var nameList = new Array();
+function getNames() {
+
+	for (var i = 0; i < position.length; i++) {
+		var name = prompt("Add new name: ");
+
+		if (name !== null && 
+		name !== '' &&
+			isNaN(name)
+		) {
+			nameList.push({
+				name,
+			})
+			
+		} else {
+			
+			if (confirm('Error data! Try again?')) {
+				getNames();
+			} else {
+				return;
+			};
+		};
+	}
+};
+console.log(nameList);
+
+
+var team = {
+	workers: [
+		{
+			position,
+			nameList
+		}
+	],
+
+	showteam: function() {
+		
+		for (var i = 0; i < position.length; i++) {
+			var key = position[i];
+			var value = nameList[i];
+			team[key] = value;
+		} 
+		
+	}
+}	
+
+console.log(team);
+
+ 
+function setSalary() {
+	var salary = Math.floor();
+
+	for (var i = 0; i < position.length; i++) {
+	
+		if (position[i].indexOf('Junior')) {
+			team.workers.salary = Math.floor(Math.random() * (1000 - 500)) + 500;
+		} 
+		else
+		if (position[i].indexOf('Middel')) {
+			team.workers.salary = Math.floor(Math.random() * (2000 - 1500)) + 1500;
+		}
+		else 
+		if (position[i].indexOf('Senior')) {
+			team.workers.salary = Math.floor(Math.random() * (3000 - 2500))+ 2500;
+		}
+		else
+		{
+			team.workers.salary = Math.floor(Math.random() * (4500 - 4000)) + 4500;
+		}
+	}
+	
+}
+
+
+	tellAboutYourSelf = function() {
+		for (var i = 0; i < team.workers.length; i++) {
+		console.log("Я " + ' ' +  team.workers.position + " Меня зовут " + ' ' + team.workers.nameList + " Я зрабатываю - " +  ' ' + team.workers.salary);
+		}
+	
+	}
+tellAboutYourSelf();
 
 
 
+
+getNames();
+team.showteam();
+setSalary();
 
 	</script>
 </head>
 <body>
 
+
+
+
+
+	
 </body>
 </html>
